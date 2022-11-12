@@ -1,9 +1,11 @@
 @use '../../scss/' as *;
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
@@ -13,4 +15,16 @@ html {
 body {
     font-family: $font-family;
     font-size: 1.6rem;
+}
+
+.container {
+    &-xl {
+        max-width: 1307px;
+        margin: auto;
+    }
+
+    &-xxl {
+        max-width: 1347px;
+        margin: auto;
+    }
 }
