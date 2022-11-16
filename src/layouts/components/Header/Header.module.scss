@@ -1,7 +1,7 @@
-@use '../../scss' as *;
+@use '../../../scss' as *;
 
 .header {
-    background-color: $header-bg-color;
+    background-color: $dark-bg-color;
     font-size: 17px;
     color: $white-txt-color;
 }
@@ -11,6 +11,39 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include l-tablet {
+        .navigation {
+            order: 1;
+            display: none;
+        }
+
+        .logo {
+            order: 2;
+
+            img {
+                width: 42px;
+            }
+        }
+
+        .user {
+            order: 3;
+        }
+    }
+}
+
+.dropdown {
+    color: $white-txt-color;
+    background-color: transparent;
+    display: none;
+
+    .menu-icon {
+        font-size: 26px;
+    }
+
+    @include l-tablet {
+        display: block;
+    }
 }
 
 .logo {
@@ -20,7 +53,6 @@
 .navigation {
     .list-item {
         display: flex;
-        list-style: none;
 
         .item {
             display: flex;
@@ -49,6 +81,7 @@
 }
 
 .user {
+    margin-right: -14px;
     padding: 14px;
     -webkit-transition: 0.2s ease-in-out;
     transition: 0.2s ease-in-out;
@@ -56,7 +89,6 @@
 
     a {
         color: $white-txt-color;
-        text-decoration: none;
     }
 
     &-icon {

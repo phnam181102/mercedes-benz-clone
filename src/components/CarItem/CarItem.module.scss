@@ -1,0 +1,74 @@
+@use '../../scss' as *;
+
+.wrapper {
+    color: $dark-txt-color;
+
+    .car-item {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 50px;
+        height: 280px;
+        margin-bottom: 38px;
+
+        &__info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 22px;
+            font-family: $font-family-2;
+        }
+
+        &__name {
+            font-size: 2rem;
+            letter-spacing: -0.5px;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        &__tag {
+            margin-top: 14px;
+            max-width: 100%;
+            min-height: 26px;
+
+            p {
+                padding: 6px 12px;
+                color: $white-txt-color;
+                background-color: $main-color;
+                border-radius: 20px;
+                line-height: 100%;
+                font-size: 12px;
+                font-weight: 600;
+            }
+        }
+
+        &__img {
+            img {
+                max-width: 100%;
+            }
+
+            .img-1 {
+                display: block;
+            }
+
+            .img-2 {
+                display: none;
+            }
+        }
+    }
+
+    &:hover {
+        .car-item {
+            background-color: #f7f7f7;
+        }
+
+        .img-1 {
+            display: none;
+        }
+
+        .img-2 {
+            display: block;
+        }
+    }
+}

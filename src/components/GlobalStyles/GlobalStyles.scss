@@ -1,6 +1,6 @@
 @use '../../scss/' as *;
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Oriya:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
 * {
     box-sizing: border-box;
@@ -13,18 +13,32 @@ html {
 }
 
 body {
-    font-family: $font-family;
+    overflow-x: hidden;
+    font-family: $font-family-1;
     font-size: 1.6rem;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .container {
-    &-xl {
-        max-width: 1307px;
-        margin: auto;
-    }
+    width: 86%;
+    max-width: 1680px;
+    margin: auto;
+}
 
-    &-xxl {
-        max-width: 1347px;
-        margin: auto;
-    }
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    outline: none;
+    border: none;
 }

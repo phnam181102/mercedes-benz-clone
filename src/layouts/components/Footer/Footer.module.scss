@@ -1,0 +1,157 @@
+@use '../../../scss' as *;
+
+.footer {
+    padding: 32px 0;
+    background-color: $dark-bg-color;
+    color: $white-txt-color;
+
+    .newsletter {
+        display: grid;
+        padding: 30px 28px;
+        margin-bottom: 5rem;
+        grid-template-areas: 'text text text btn';
+        row-gap: 3rem;
+        border: 1px solid $grey-txt-color;
+
+        @include l-tablet {
+            padding: 2rem;
+            grid-template-areas:
+                'text '
+                'btn';
+        }
+
+        &__text {
+            grid-area: text;
+            width: 100%;
+        }
+
+        &__title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        &__desc {
+            font-size: 14.5px;
+            font-weight: 500;
+            color: $grey-txt-color;
+        }
+
+        &__btn {
+            text-align: center;
+            margin-left: auto;
+            grid-area: btn;
+            width: 75%;
+            padding: 15px 30px;
+            background: $main-color;
+
+            @include l-tablet {
+                width: 100%;
+            }
+        }
+
+        &__link {
+            font-weight: 600;
+            color: $white-txt-color;
+        }
+    }
+
+    .sitemap-section {
+        display: grid;
+        grid-column-gap: 2.5rem;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 3rem;
+
+        @include l-tablet {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include mobile {
+            display: none;
+        }
+
+        &__title {
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        &__item ~ .sitemap-section__item {
+            margin-top: 12px;
+        }
+
+        &__link {
+            font-size: 14.5px;
+            color: $grey-txt-color;
+            font-weight: 500;
+            padding-bottom: 2px;
+
+            background-repeat: no-repeat, no-repeat;
+            background-position-x: left;
+            background-size: 0 100%, 100% 100%;
+            transition: background-size 0.42s cubic-bezier(0.165, 0.84, 0.44, 1);
+            background-origin: right;
+            background-image: linear-gradient(0deg, #fff 1px, transparent 0);
+
+            &:hover {
+                color: $white-txt-color;
+                background-size: 100% 100%, 100% 100%;
+            }
+        }
+    }
+
+    .lower-footer {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 4rem;
+        justify-content: space-between;
+        padding-top: 3rem;
+        border-top: 1px solid $grey-txt-color;
+
+        .social {
+            order: 2;
+
+            @include tablet {
+                order: 1;
+            }
+
+            @include mobile {
+                width: 100%;
+                margin-bottom: 1.5rem;
+            }
+
+            &__icon {
+                font-size: 26px;
+            }
+
+            &__icon + .social__icon {
+                margin-left: 32px;
+            }
+        }
+
+        .legal {
+            order: 1;
+
+            &__list {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            &__item + .legal__item {
+                margin-left: 24px;
+            }
+
+            &__link {
+                color: $white-txt-color;
+            }
+
+            @include tablet {
+                order: 2;
+            }
+        }
+    }
+}
