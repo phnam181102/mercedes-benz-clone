@@ -6,7 +6,7 @@ const cx = classNames.bind(styles);
 
 function CarItem() {
     return (
-        <Link to="#" className={cx('wrapper')}>
+        <Link to="/detail" className={cx('wrapper')}>
             <div className={cx('car-item')}>
                 <div className={cx('car-item__info')}>
                     <div className={cx('car-item__name')}>GLA SUV</div>
