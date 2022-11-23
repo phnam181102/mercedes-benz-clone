@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../LoginRegister.module.scss';
+import styles from '../Auth.module.scss';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleQuestion, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';

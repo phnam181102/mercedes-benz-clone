@@ -28,12 +28,12 @@ function Header() {
                         <ul className={cx('list-item')}>
                             <li className={cx('item')}>
                                 <img className={cx('car-icon')} src={car} alt="Car icon" />
-                                Các dòng xe
+                                Our models
                             </li>
-                            <li className={cx('item')}>Mua trực tuyến</li>
-                            <li className={cx('item')}>Tư vấn mua xe</li>
-                            <li className={cx('item')}>Dịch vụ</li>
-                            <li className={cx('item')}>Thế giới Mercedes</li>
+                            <li className={cx('item')}>Buy online</li>
+                            <li className={cx('item')}>Purchase advice</li>
+                            <li className={cx('item')}>Customer Services</li>
+                            <li className={cx('item')}>Mercedes World</li>
                         </ul>
                     </div>
 

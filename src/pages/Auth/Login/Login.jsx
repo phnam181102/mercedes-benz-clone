@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleQuestion, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
-import styles from '../LoginRegister.module.scss';
+import styles from '../Auth.module.scss';
 import { showErrMsg, showSuccessMsg } from '~/components/Notification/Notification';
 
 const cx = classNames.bind(styles);

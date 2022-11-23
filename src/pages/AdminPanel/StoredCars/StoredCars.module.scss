@@ -1,0 +1,123 @@
+@use '../../../scss/' as *;
+
+.wrapper {
+    max-width: 1140px;
+    margin: 2.5rem auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+
+    .heading {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        h1 {
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: #34495e;
+        }
+
+        .add-btn {
+            opacity: 0.85;
+            color: #34495e;
+            font-weight: 700;
+            transition: opacity 0.15s ease-in-out;
+
+            .plus-icon {
+                padding-right: 8px;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    .car-table {
+        margin: 1.5em 0;
+        width: 100%;
+
+        tbody {
+            tr {
+                border-top: 1px solid lighten(#617384, 10%);
+            }
+        }
+
+        th {
+            display: none;
+        }
+
+        td {
+            display: block;
+
+            &:first-child {
+                padding-top: 0.5em;
+            }
+            &:last-child {
+                padding-bottom: 0.5em;
+            }
+        }
+
+        th,
+        td {
+            text-align: left;
+
+            display: table-cell;
+            padding: 0.25em 0.5em;
+
+            &:first-child {
+                padding-left: 0;
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+
+        .actions {
+            display: flex;
+
+            a {
+                font-weight: 700;
+                color: $white-txt-color;
+
+                &:first-child {
+                    margin-right: 12px;
+                }
+                &:hover {
+                    // color: #34495e;
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .car-img {
+            max-width: 180px;
+        }
+    }
+
+    .car-table {
+        background: #34495e;
+        color: #fff;
+        border-radius: 0.4em;
+        overflow: hidden;
+
+        th,
+        td {
+            margin: 0.5em 1em;
+            padding: 1em !important;
+        }
+        th,
+        td:before {
+            color: #dd5;
+        }
+    }
+}

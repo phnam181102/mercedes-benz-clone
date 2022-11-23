@@ -1,6 +1,3 @@
-// import { BrowserRouter, Route } from 'react-router-dom';
-
-// import Routes from './config/Routes';
 import DefaultLayout from '~/layouts/DefaultLayout/DefaultLayout';
 
 import { Fragment } from 'react';
@@ -9,15 +6,6 @@ import { publicRoutes } from '~/routes';
 
 function App() {
     return (
-        // <BrowserRouter>
-        //     <Route
-        //         render={(props) => (
-        //             <DefaultLayout>
-        //                 <Routes />
-        //             </DefaultLayout>
-        //         )}
-        //     />
-        // </BrowserRouter>
         <Router>
             <div className="App">
                 <Routes>

@@ -48,7 +48,7 @@ function Home() {
                             <h2>Parameter</h2>
                             <ul className={cx('list-item')}>
                                 <li className={cx('item')}>
-                                    <p className={cx('title')}>Running distance up to</p>
+                                    <p className={cx('title')}>Range up to</p>
 
                                     <p className={cx('parameter')}>581 – 692 (km)</p>
                                 </li>
