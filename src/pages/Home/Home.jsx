@@ -159,16 +159,16 @@ function Home() {
                                     <CarGrid />
                                 </TabPanel>
                                 <TabPanel>
-                                    <h2>Any content 2</h2>
+                                    <CarGrid />
                                 </TabPanel>
                                 <TabPanel>
-                                    <h2>Any content 3</h2>
+                                    <CarGrid />
                                 </TabPanel>
                                 <TabPanel>
-                                    <h2>Any content 4</h2>
+                                    <CarGrid />
                                 </TabPanel>
                                 <TabPanel>
-                                    <h2>Any content 5</h2>
+                                    <CarGrid />
                                 </TabPanel>
                             </section>
                         </div>

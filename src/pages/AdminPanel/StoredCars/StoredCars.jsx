@@ -6,6 +6,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 import request from '~/utils/request';
 import styles from './StoredCars.module.scss';
+import Modal from '~/components/Modal/Modal';
 
 const cx = classNames.bind(styles);
 
@@ -49,7 +50,7 @@ function StoredCars() {
                     </thead>
                     <tbody>
                         {cars.map((car, index) => (
-                            <tr>
+                            <tr key={index}>
                                 <td>{index + 1}</td>
                                 <td>
                                     <img className={cx('car-img')} src={car.avatar[0]} alt="" />
@@ -59,15 +60,9 @@ function StoredCars() {
                                 <td>$ {car.price}</td>
                                 <td>
                                     <div className={cx('actions')}>
-                                        <Link
-                                            to={{
-                                                pathname: `/adminpanel/edit/${car.slug}`,
-                                                state: [{ id: 1, name: 'Ford', color: 'red' }],
-                                            }}
-                                        >
-                                            Edit
-                                        </Link>
-                                        <Link to="#">Delete</Link>
+                                        <Link to={`/adminpanel/edit/${car.slug}`}>Edit</Link>
+                                        <a href={`#openModal-${car._id}`}>Delete</a>
+                                        <Modal car={car} />
                                     </div>
                                 </td>
                             </tr>

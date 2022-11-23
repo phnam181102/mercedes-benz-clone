@@ -29,8 +29,8 @@ function Create() {
                 </div>
 
                 <form method="POST" action="http://localhost:3000/api/cars/" className={cx('form')}>
-                    <div class={cx('form-group')}>
-                        <label for="name">Name</label>
+                    <div className={cx('form-group')}>
+                        <label htmlFor="name">Name</label>
                         <div className={cx('input-group')}>
                             <FontAwesomeIcon className={cx('icon')} icon={faCar} />
                             <input
@@ -42,8 +42,8 @@ function Create() {
                         </div>
                     </div>
 
-                    <div class={cx('form-group')}>
-                        <label for="price">Price</label>
+                    <div className={cx('form-group')}>
+                        <label htmlFor="price">Price</label>
                         <div className={cx('input-group')}>
                             <FontAwesomeIcon className={cx('icon')} icon={faSackDollar} />
                             <input
@@ -55,8 +55,8 @@ function Create() {
                         </div>
                     </div>
 
-                    <div class={cx('form-group')}>
-                        <label for="avatar1">Url Avatar Image 1</label>
+                    <div className={cx('form-group')}>
+                        <label htmlFor="avatar1">Url Avatar Image 1</label>
                         <div className={cx('input-group')}>
                             <FontAwesomeIcon className={cx('icon')} icon={faImage} />
                             <input
@@ -68,8 +68,8 @@ function Create() {
                         </div>
                     </div>
 
-                    <div class={cx('form-group')}>
-                        <label for="avatar2">Url Avatar Image 2</label>
+                    <div className={cx('form-group')}>
+                        <label htmlFor="avatar2">Url Avatar Image 2</label>
                         <div className={cx('input-group')}>
                             <FontAwesomeIcon className={cx('icon')} icon={faImage} />
                             <input
@@ -81,8 +81,8 @@ function Create() {
                         </div>
                     </div>
 
-                    <div class={cx('form-group')}>
-                        <label for="range">Range</label>
+                    <div className={cx('form-group')}>
+                        <label htmlFor="range">Range</label>
                         <div className={cx('input-group')}>
                             <FontAwesomeIcon
                                 className={cx('icon', 'hourglass-icon')}
@@ -97,8 +97,8 @@ function Create() {
                         </div>
                     </div>
 
-                    <div class={cx('form-group')}>
-                        <label for="topSpeed">Top Speed</label>
+                    <div className={cx('form-group')}>
+                        <label htmlFor="topSpeed">Top Speed</label>
                         <div className={cx('input-group')}>
                             <FontAwesomeIcon className={cx('icon')} icon={faGaugeHigh} />
                             <input
@@ -110,8 +110,8 @@ function Create() {
                         </div>
                     </div>
 
-                    <div class={cx('form-group')}>
-                        <label for="chargingTime">Charging Time</label>
+                    <div className={cx('form-group')}>
+                        <label htmlFor="chargingTime">Charging Time</label>
                         <div className={cx('input-group')}>
                             <FontAwesomeIcon className={cx('icon')} icon={faClock} />
                             <input
@@ -123,8 +123,8 @@ function Create() {
                         </div>
                     </div>
 
-                    <div class={cx('form-group')}>
-                        <label for="modelType">Choose model:</label>
+                    <div className={cx('form-group')}>
+                        <label htmlFor="modelType">Choose model:</label>
                         <div className={cx('input-group')}>
                             <FontAwesomeIcon className={cx('icon')} icon={faList} />
                             <select id="modelType" name="modelType">
@@ -135,8 +135,8 @@ function Create() {
                         </div>
                     </div>
 
-                    <div class={cx('form-group')}>
-                        <label for="bodyType">Choose body type:</label>
+                    <div className={cx('form-group')}>
+                        <label htmlFor="bodyType">Choose body type:</label>
                         <div className={cx('input-group')}>
                             <FontAwesomeIcon className={cx('icon')} icon={faList} />
                             <select id="bodyType" name="bodyType">
@@ -149,16 +149,32 @@ function Create() {
                     </div>
 
                     <div className={cx('form-group')}>
-                        <label class="form-check-label" for="new">
+                        <label className="form-check-label" htmlFor="new">
                             Car just released?
                         </label>
                         <div className={cx('input-group')}>
-                            <input
-                                className={cx('form-check-input')}
-                                type="checkbox"
-                                id="new"
-                                name="new"
-                            />
+                            <div className={cx('option')}>
+                                <input
+                                    className={cx('form-check-input')}
+                                    type="radio"
+                                    id="new"
+                                    name="new"
+                                    value="yes"
+                                    defaultChecked
+                                />
+                                <p>Yes</p>
+                            </div>
+
+                            <div className={cx('option')}>
+                                <input
+                                    className={cx('form-check-input')}
+                                    type="radio"
+                                    id="new"
+                                    name="new"
+                                    value="no"
+                                />
+                                <p>No</p>
+                            </div>
                         </div>
                     </div>
 

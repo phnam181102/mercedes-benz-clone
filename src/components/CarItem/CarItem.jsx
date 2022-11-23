@@ -16,7 +16,7 @@ function CarItem(props) {
                     <div className={cx('car-item__price')}>From ${car.price}</div>
                 </div>
 
-                <div className={cx('car-item__tag')}>{car.new ? <p>New</p> : ''}</div>
+                <div className={cx('car-item__tag')}>{car.new === 'yes' ? <p>New</p> : ''}</div>
 
                 <div className={cx('car-item__img')}>
                     <img className={cx('img-1')} src={car.avatar[0]} alt="" />

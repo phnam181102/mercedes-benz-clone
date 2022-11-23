@@ -107,6 +107,16 @@
                     width: 15px;
                 }
             }
+
+            .option {
+                display: flex;
+                align-items: center;
+                margin-right: 2rem;
+
+                input {
+                    margin-right: 2px;
+                }
+            }
         }
 
         .submit-btn {

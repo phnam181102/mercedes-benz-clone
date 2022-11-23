@@ -1,0 +1,68 @@
+@use '../../scss/' as *;
+
+.modalDialog {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: $dark-txt-color;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 99999;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+
+    & > * > * {
+        padding: 2rem;
+        border-bottom: 1px solid #ccc;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+}
+
+.modalDialog:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modalDialog > div {
+    width: 420px;
+    position: relative;
+    margin: 10% auto;
+    border-radius: 4px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-btn {
+    padding: 8px 12px;
+    background: #606061;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+
+    &.delete {
+        background-color: rgb(255, 51, 0);
+        margin-right: 1.5rem;
+    }
+}
+
+// .close:hover {
+//     background: #00d9ff;
+// }

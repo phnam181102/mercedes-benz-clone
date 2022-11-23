@@ -22,22 +22,18 @@ const cx = classNames.bind(styles);
 function Edit(props) {
     const [car, setCar] = useState();
     const { slug } = useParams();
-    // const data = this.props.location.state;
-    const [name, setName] = useState();
 
     useEffect(() => {
         const fetchApi = async () => {
             try {
                 const res = await request.get(`cars/${slug}`);
                 setCar(res.data);
-                setName(res.data.name);
-                console.log(name);
             } catch (error) {
                 console.log(error);
             }
         };
         fetchApi();
-    }, []);
+    }, [slug]);
 
     return (
         car && (
@@ -53,9 +49,10 @@ function Edit(props) {
 
                     <form
                         method="POST"
-                        action="http://localhost:3000/api/cars/"
+                        action={`http://localhost:3000/api/cars/${slug}?_method=PUT`}
                         className={cx('form')}
                     >
+                        <input type="hidden" name="_method" value="PUT" />
                         <div className={cx('form-group')}>
                             <label htmlFor="name">Name</label>
                             <div className={cx('input-group')}>
@@ -65,8 +62,7 @@ function Edit(props) {
                                     className={cx('form-control')}
                                     id="name"
                                     name="name"
-                                    value={car.name}
-                                    onChange={(e) => setName(e.target.value)}
+                                    defaultValue={car.name}
                                 />
                             </div>
                         </div>
@@ -80,7 +76,7 @@ function Edit(props) {
                                     className={cx('form-control')}
                                     id="price"
                                     name="price"
-                                    value={car.price}
+                                    defaultValue={car.price}
                                 />
                             </div>
                         </div>
@@ -94,7 +90,7 @@ function Edit(props) {
                                     className={cx('form-control')}
                                     id="avatar1"
                                     name="avatar1"
-                                    value={car.avatar[0]}
+                                    defaultValue={car.avatar[0]}
                                 />
                             </div>
                         </div>
@@ -108,7 +104,7 @@ function Edit(props) {
                                     className={cx('form-control')}
                                     id="avatar2"
                                     name="avatar2"
-                                    value={car.avatar[1]}
+                                    defaultValue={car.avatar[1]}
                                 />
                             </div>
                         </div>
@@ -125,7 +121,7 @@ function Edit(props) {
                                     className={cx('form-control')}
                                     id="range"
                                     name="range"
-                                    value={car.range}
+                                    defaultValue={car.range}
                                 />
                             </div>
                         </div>
@@ -139,7 +135,7 @@ function Edit(props) {
                                     className={cx('form-control')}
                                     id="topSpeed"
                                     name="topSpeed"
-                                    value={car.topSpeed}
+                                    defaultValue={car.topSpeed}
                                 />
                             </div>
                         </div>
@@ -153,7 +149,7 @@ function Edit(props) {
                                     className={cx('form-control')}
                                     id="chargingTime"
                                     name="chargingTime"
-                                    value={car.chargingTime}
+                                    defaultValue={car.chargingTime}
                                 />
                             </div>
                         </div>
@@ -162,7 +158,11 @@ function Edit(props) {
                             <label htmlFor="modelType">Choose model:</label>
                             <div className={cx('input-group')}>
                                 <FontAwesomeIcon className={cx('icon')} icon={faList} />
-                                <select id="modelType" name="modelType">
+                                <select
+                                    id="modelType"
+                                    name="modelType"
+                                    defaultValue={car.modelType}
+                                >
                                     <option value="mercedes-eq">Mercedes-EQ</option>
                                     <option value="amg">AMG</option>
                                     <option value="maybach">MAYBACH</option>
@@ -174,7 +174,7 @@ function Edit(props) {
                             <label htmlFor="bodyType">Choose body type:</label>
                             <div className={cx('input-group')}>
                                 <FontAwesomeIcon className={cx('icon')} icon={faList} />
-                                <select id="bodyType" name="bodyType">
+                                <select id="bodyType" name="bodyType" defaultValue={car.bodyType}>
                                     <option value="sedans">Sedans</option>
                                     <option value="suv">SUVs</option>
                                     <option value="coupe">Coupes</option>
@@ -187,13 +187,33 @@ function Edit(props) {
                             <label className="form-check-label" htmlFor="new">
                                 Car just released?
                             </label>
+
                             <div className={cx('input-group')}>
-                                <input
-                                    className={cx('form-check-input')}
-                                    type="checkbox"
-                                    id="new"
-                                    name="new"
-                                />
+                                <div className={cx('option')}>
+                                    <input
+                                        className={cx('form-check-input')}
+                                        type="radio"
+                                        id="new"
+                                        name="new"
+                                        value="yes"
+                                        defaultChecked={car.new === 'yes' ? true : false}
+                                    />
+                                    <p>Yes</p>
+                                </div>
+
+                                <div className={cx('option')}>
+                                    <input
+                                        className={cx('form-check-input')}
+                                        type="radio"
+                                        id="new"
+                                        name="new"
+                                        value="no"
+                                        defaultChecked={
+                                            car.new === 'no' || car.new === undefined ? true : false
+                                        }
+                                    />
+                                    <p>No</p>
+                                </div>
                             </div>
                         </div>
 

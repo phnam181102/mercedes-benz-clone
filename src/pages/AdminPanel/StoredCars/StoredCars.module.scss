@@ -85,7 +85,7 @@
         .actions {
             display: flex;
 
-            a {
+            & > a {
                 font-weight: 700;
                 color: $white-txt-color;
 
