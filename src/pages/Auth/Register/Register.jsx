@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from '../Auth.module.scss';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleQuestion, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCircleQuestion,
+    faEye,
+    faEyeSlash,
+    faArrowLeft,
+} from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { showErrMsg, showSuccessMsg } from '~/components/Notification/Notification';
 
@@ -18,6 +24,8 @@ const initialState = {
 };
 
 function Register() {
+    const navigate = useNavigate();
+
     const [user, setUser] = useState(initialState);
     const [showPassword, setShowPassword] = useState(false);
 
@@ -59,8 +67,11 @@ function Register() {
     };
     return (
         <div className={cx('background')}>
+            <div className={cx('back-button')} onClick={() => navigate('/')}>
+                <FontAwesomeIcon icon={faArrowLeft} />
+            </div>
+
             <div className={cx('container')}>
-                <div className={cx('titlebar')}>Tạo tài khoản người dùng</div>
                 <form onSubmit={handleSubmit}>
                     <div className={cx('content')}>
                         <div className={cx('header')}>
@@ -71,11 +82,11 @@ function Register() {
                             />
                         </div>
                         <h4 className={cx('content-title')}>
-                            <span>Tên người dùng</span>
+                            <span>Username</span>
                         </h4>
                         <p className={cx('content-description')}>
-                            Tên người dùng được sử dụng để đăng nhập vào tài khoản của bạn. Chúng
-                            tôi sẽ gửi cho bạn mã xác nhận vào tên người dùng này để xác minh.
+                            The username is used to log in to your account. We will send a
+                            confirmation code to this username for verification.
                         </p>
 
                         <div className={cx('input')}>
@@ -84,12 +95,12 @@ function Register() {
                                 value={email}
                                 name="email"
                                 className={cx('input-type')}
-                                placeholder="Địa chỉ Email *"
+                                placeholder="Email address *"
                                 onChange={handleChangeInput}
                             />
                         </div>
                         <h4 className={cx('content-title')}>
-                            <span>Các thông tin cá nhân</span>
+                            <span>Personal Information</span>
                         </h4>
                         <div className={cx('input')}>
                             <input
@@ -97,7 +108,7 @@ function Register() {
                                 value={username}
                                 name="username"
                                 className={cx('input-type')}
-                                placeholder="Tên *"
+                                placeholder="Name *"
                                 onChange={handleChangeInput}
                             />
                         </div>
@@ -107,7 +118,7 @@ function Register() {
                                 value={password}
                                 name="password"
                                 className={cx('input-type')}
-                                placeholder="Mật khẩu *"
+                                placeholder="Password *"
                                 onChange={handleChangeInput}
                             />
                             <span
@@ -131,7 +142,7 @@ function Register() {
                                 value={cf_password}
                                 name="cf_password"
                                 className={cx('input-type')}
-                                placeholder="Nhập lại mật khẩu *"
+                                placeholder="Confirm Password *"
                                 onChange={handleChangeInput}
                             />
                             <span
@@ -151,18 +162,17 @@ function Register() {
                         </div>
 
                         <div className={cx('mandatory')}>
-                            <p className={cx('mandatory-label')}>* Ô bắt buộc</p>
+                            <p className={cx('mandatory-label')}>* Required field</p>
                         </div>
 
                         <div className={cx('rules')}>
                             <div className={cx('checkbox')}>
                                 <input type="checkbox" className={cx('checkbox-input')} />
                                 <label className={cx('checkbox-label')}>
-                                    Tôi đồng ý với các điều khoản sau *
+                                    I agree to the following terms and conditions *
+                                    <span className={cx('rules-btn')}>Terms of Use</span>
                                 </label>
                             </div>
-
-                            <button className={cx('rules-btn')}>Các điều khoản sử dụng</button>
                         </div>
 
                         {err && showErrMsg(err)}
@@ -170,19 +180,19 @@ function Register() {
 
                         <div className={cx('btn')}>
                             <button className={cx('btn-main')} type="submit">
-                                Tạo tài khoản người dùng
+                                Create User Account
                             </button>
                             <h4 className={cx('content-title')}>
-                                <span>Hoặc</span>
+                                <span>Or</span>
                             </h4>
                             <a href="/login" className={cx('btn-main', 'btn-extra')}>
-                                Đăng Nhập
+                                Log In
                             </a>
                         </div>
                     </div>
                 </form>
                 <div className={cx('footer')}>
-                    <button className={cx('footer-btn')}>Chỉ dẫn pháp lý</button>
+                    <button className={cx('footer-btn')}>Legal Information</button>
                 </div>
             </div>
         </div>

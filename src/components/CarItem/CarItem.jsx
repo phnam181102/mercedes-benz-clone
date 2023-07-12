@@ -6,7 +6,6 @@ const cx = classNames.bind(styles);
 
 function CarItem(props) {
     const car = props.car;
-    console.log(car);
 
     return (
         <Link to="#" className={cx('wrapper')}>

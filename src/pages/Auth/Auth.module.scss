@@ -10,21 +10,25 @@
     justify-content: center;
     align-items: center;
 
+    .back-button {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        border: none;
+        background-color: transparent;
+        color: #fff;
+        font-size: 2.5rem;
+        cursor: pointer;
+    }
+
     .container {
         width: 100%;
         max-width: 540px;
         background-color: #fff;
+        border-radius: 4px;
         height: auto;
-
-        .titlebar {
-            background-color: #000;
-            color: #fff;
-            font-size: 2.6rem;
-            padding: 8px 0;
-            font-weight: 600;
-            line-height: 42px;
-            text-align: center;
-        }
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+            rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 
         .content {
             margin: 0 33px;
@@ -116,10 +120,11 @@
 
             .mandatory {
                 margin: 4px 0;
+                margin-top: 20px;
 
                 .mandatory-label {
                     font-size: 1.2rem;
-                    color: #666;
+                    color: rgb(188, 17, 17);
                 }
             }
 
@@ -144,10 +149,10 @@
                 .rules-btn {
                     border: none;
                     background-color: transparent;
-                    font-size: 1.6rem;
+                    font-size: 1.5rem;
                     color: #1e70bf;
                     margin-top: 8px;
-                    margin-left: 24px;
+                    margin-left: 5px;
                     cursor: pointer;
                 }
             }

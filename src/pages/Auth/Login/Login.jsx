@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleQuestion, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCircleQuestion,
+    faEye,
+    faEyeSlash,
+    faArrowLeft,
+} from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
 import styles from '../Auth.module.scss';
 import { showErrMsg, showSuccessMsg } from '~/components/Notification/Notification';
+import { useUser } from '~/context/UserContext';
 
 const cx = classNames.bind(styles);
 
@@ -15,14 +22,16 @@ const initialState = {
 };
 
 function Login() {
-    const [user, setUser] = useState(initialState);
-    const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
+    const { setUser } = useUser();
 
+    const [user, setUserState] = useState(initialState);
+    const [showPassword, setShowPassword] = useState(false);
     const { email, password, err, success } = user;
 
     const handleChangeInput = (e) => {
         const { name, value } = e.target;
-        setUser({ ...user, [name]: value, err: '', success: '' });
+        setUserState({ ...user, [name]: value, err: '', success: '' });
     };
 
     const handleSubmit = async (e) => {
@@ -33,7 +42,11 @@ function Login() {
                 password,
             });
 
-            setUser({ ...user, err: '', success: res.data.message });
+            const userData = res.data.user;
+            setUser(userData);
+            sessionStorage.setItem('userData', JSON.stringify(userData));
+            console.log(userData);
+            navigate('/');
         } catch (err) {
             console.log(err);
             err.response.data.message &&
@@ -47,8 +60,10 @@ function Login() {
 
     return (
         <div className={cx('background')}>
+            <div className={cx('back-button')} onClick={() => navigate('/')}>
+                <FontAwesomeIcon icon={faArrowLeft} />
+            </div>
             <div className={cx('container')}>
-                <div className={cx('titlebar')}>Đăng nhập</div>
                 <form onSubmit={handleSubmit}>
                     <div className={cx('content')}>
                         <div className={cx('header')}>
@@ -59,7 +74,7 @@ function Login() {
                             />
                         </div>
                         <p className={cx('content-description')}>
-                            Vui lòng nhập địa chỉ Email và Mật khẩu của bạn
+                            Please enter your email address and password
                         </p>
                         <div className={cx('input')}>
                             <input
@@ -67,7 +82,7 @@ function Login() {
                                 value={email}
                                 name="email"
                                 className={cx('input-type')}
-                                placeholder="Địa chỉ Email *"
+                                placeholder="Email address *"
                                 onChange={handleChangeInput}
                             />
                         </div>
@@ -77,7 +92,7 @@ function Login() {
                                 value={password}
                                 name="password"
                                 className={cx('input-type')}
-                                placeholder="Mật khẩu *"
+                                placeholder="Password *"
                                 onChange={handleChangeInput}
                             />
                             <span
@@ -99,20 +114,20 @@ function Login() {
                         {success && showSuccessMsg(success)}
                         <div className={cx('btn')}>
                             <button className={cx('btn-main')} type="submit">
-                                Đăng Nhập
+                                Log In
                             </button>
                             <h4 className={cx('content-title')}>
-                                <span>Hoặc</span>
+                                <span>Or</span>
                             </h4>
                             <a href="/register" className={cx('btn-main', 'btn-extra')}>
-                                Đăng ký
+                                Register
                             </a>
                         </div>
                     </div>
                 </form>
 
                 <div className={cx('footer')}>
-                    <button className={cx('footer-btn')}>Chỉ dẫn pháp lý</button>
+                    <button className={cx('footer-btn')}>Legal Information</button>
                 </div>
             </div>
         </div>
