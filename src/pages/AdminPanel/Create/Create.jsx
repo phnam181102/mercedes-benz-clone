@@ -28,7 +28,11 @@ function Create() {
                     </Link>
                 </div>
 
-                <form method="POST" action="http://localhost:3000/api/cars/" className={cx('form')}>
+                <form
+                    method="POST"
+                    action={`http://localhost:3000/api/cars/`}
+                    className={cx('form')}
+                >
                     <div className={cx('form-group')}>
                         <label htmlFor="name">Name</label>
                         <div className={cx('input-group')}>

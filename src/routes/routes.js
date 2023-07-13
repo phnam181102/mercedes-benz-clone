@@ -2,6 +2,7 @@
 // import HeaderOnly from '~/layouts/HeaderOnly/HeaderOnly';
 
 // Pages
+import Detail from '~/pages/Detail/Detail';
 import Home from '~/pages/Home/Home';
 import Login from '~/pages/Auth/Login/Login';
 import Register from '~/pages/Auth/Register/Register';
@@ -15,6 +16,7 @@ const publicRoutes = [
     // { path: '/detail/:id', component: Detail, layout: HeaderOnly },
     { path: '/login', component: Login, layout: null },
     { path: '/register', component: Register, layout: null },
+    { path: '/detail', component: Detail, layout: null },
     { path: '/adminpanel', component: StoredCars, layout: null },
     { path: '/adminpanel/create', component: Create, layout: null },
     { path: '/adminpanel/edit/:slug', component: Edit, layout: null },

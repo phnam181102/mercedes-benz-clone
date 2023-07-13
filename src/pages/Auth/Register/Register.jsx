@@ -49,7 +49,7 @@ function Register() {
         }
 
         try {
-            const res = await axios.post('http://localhost:3000/api/users/register', {
+            const res = await axios.post(`http://localhost:3000/api/users/register`, {
                 username,
                 email,
                 password,
